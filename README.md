@@ -42,6 +42,7 @@
 12. Users may also click on the + button of listed movies to remove from the list.
 
 
+<br>
 
 
-<u>*** note: node_modules deleted from file ***</u>
+<u>*** note: node_modules is deleted from file ***</u>
