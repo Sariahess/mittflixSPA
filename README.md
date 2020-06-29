@@ -1,98 +1,48 @@
 ![](https://fontmeme.com/permalink/190707/fd4735271a0d997cbe19a04408c896fc.png)
 
-To begin, you'll need to clone the app from this [repository](https://github.com/jniziol/mittflix)
-
-All the HTML and CSS is already included in `App.js` and `index.css` files. You'll need to perform an `npm install` to install all the packages necessary to run the application. Performing this includes the installation of React Router, so you won't have to do that seperately.
-
-## To start this app
-
-To start this app, you will need to run 2 separate commands.
-
-### `npm run db`
-
-This will start the database so your app actually has movies to query.<br>
-The database runs on port `3001` just in case you need that info.
-
-### `npm start`
-
-This starts up the actual app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Single Page Application: MITTFLIX
 
 
-# Requirements
+## How the page works for users
 
-The app is provided to you in a static state, but it needs to be changed to a fully dynamic React app. It has variety of functionality. You can check out a fully functional app at [here](https://mittflix.web.app/)
 
-## Main Page
+### Main page (view & functionality)
 
-Located at `/`, this page has the following functionality:
+1. All movies from API database are displayed according to the movie's genre. If a genre contains 0 movies, the genre will not show up.
 
-- movies are grouped by genre.
-- genre headings only show up if there are movies that belong to that genre.
-- movies can belong to 1 or more genres and show up multiple times on the page.
-- genres are displayed in alphabetical order.
-- all the genres that have movies are displayed.
+2. Each movie could belong to more than one genre, therefore the same movie repeatedly appears in the associated genre column.
 
-## Search (Filter)
+3. Top-left corner of the page's image of "MITTFLIX" is a link that brings back to initial page display.
 
-Located on all pages, search has the following functionality:
+4. "My List" next to the MITTFLIX is also a link that displays liked movies. Since the results are saved, page refresh or reopening of the app will not change the listed movies.
 
-- The search will apply to the list of movies displayed on any of the pages the user is currently visiting.
 
-- The search filters the results down based on the input provided
-- The results are filtered based on the finding matching text either within the `title` or the `overview`
-- Whenever the text content of the input changes, a new filter is performed. This is dependent upon keystrokes, not submit events.
-- The amount of results found are displayed below the search field.
-- The search query being used is displayed below the search field.
-- Don't worry about the filter *NOT* working on backspace.
+### Search Bar
 
-## My List
+5. Users can search movies by keywords by typing keywords into the top search bar next to My List. Movies that contain the keywords either in its title or the overview (plot) would show up nested in the genre. (i.e. If there is only one movie that fits the keyword(s), that one movie will show up in one or more different genres)
 
-Located at `/my-list`, this page has the following functionality:
+6. The search bar displays the results by each letter typed in. (i.e. If the first key pressed was an 'a', all movies that include the letter 'a' in title or overview will show up. When typed 'b' after it, making the search keyword 'ab', would render the results to movies that contain 'ab')
 
-- Users can see all the movies that have been added to their list
-- Movies are not sorted by genres or any other specification
+7. When users use backspace or delete to erase, the resulting movies will not be rendered by the newly read keyword. However, deleting the whole keyword in the search bar would bring to the very first, initial view page which is all the movies sorted by their genres.
 
-## Adding to My List
 
-Located on all pages, Adding to My List has the following functionality:
+### "+" button: add-to or remove-from my list button
 
-- Users can hover over a movie and see a `+` sign. Clicking on this button will add a movie to their List.
-- Once a movie is added to the user's list, it will show up under the `My List` section
-- This update must be made in a way so that the information persists even if the browser is reloaded. This means you'll have to update the API.
-- If a movie is added to the user's list, it must include a red checkmark.
-- Clicking on the checkmark of a movie that is in the user's list will remove it from that list.
+8. Upon users' mouse pointer hover onto each movie (or its poster), a 'plus' button will show up. If the color is red, it means the movie has already been added to My List and can be clicked again to remove the movie from the list. If the color is grey, that means the movie is not in My List and can be added.
 
-## MovieAPI
+9. Fast clicking the + button would not work well, since the changes are applied with 0.5 second delay.
 
-Provided to you, there is a `MovieAPI`, in a `MovieAPI.js` file, which is already imported for you by default in `App.js`.
+10. The + button would also work with the movies displayed inside My List.
 
-The MovieAPI has the following methods available:
 
-- `MovieAPI.getAll()`: This will return to you all the `movies` in the database.
-- `MovieAPI.genre()`: This will return to you all the `genres` in the database.
-- `MovieAPI.addToList(movie)`: Accepts 1 parameter, a `movie` object. It will update a movies `my_list` attribute to `true` and save it to the database for you.
-- `MovieAPI.removeFromList(movie)`: Accepts 1 parameter, a `movie` object. It will update a movies `my_list` attribute to `false` and save it to the database for you.
+### My List
 
-All API endpoints return promises, so you can freely chain a `.then()` on to them. They already provide you the results in a JSON format, so you'll simply have to accept a parameter into your `then()`.
+11. Movies in My List are displayed side by side without their genre taps.
 
-## TIPS:
+12. Users may also click on the + button of listed movies to remove from the list.
 
-- This is a cumulative project of everything we've done thus far in the last 5 months together. It is composed of many small problems, and while it can seem overwhelming, remember to divide and conquer. Break down the problem into small pieces and focus on those.
 
-Here is an example of some of the smaller problems that you could look at solving, in an order that I think makes a lot of sense:
-  - Retrieving Movies from the API and placing them into state
-  - Displaying Movies from state
-  - Adding movies to `My List` and saving them back to the API
-  - Adding React Router to Display `My List` separately
-  - Filtering Movies
-  - Adding special info to `filter` based on the results
-  - Breaking down the list of movies into Genres and displaying them accordingly
 
-- We've actually done ALL of this before, so none of this is actually new. But it's a matter of making a small changes to your previous solutions and applying it in a new scenario. This is a very important skill to have as a developer.
 
-- Ask questions if you are uncertain or something is unclear to you. I'll do my best to help remove road blocks without giving up too much of the solution.
-
-- Start early, take breaks, celebrate small wins.
-
-- GL HF!
+<u># note: node_modules deleted</u>
+#### 
